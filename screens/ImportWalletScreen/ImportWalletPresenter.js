@@ -13,8 +13,10 @@ import Container from '../../components/Container';
 
 const ImportWalletPresenter = ({
   username,
-  privateKey,
+  password,
   error,
+  onInputUsername,
+  onInputPassword,
 }) => {
   return (
     <Container>
@@ -36,23 +38,29 @@ const ImportWalletPresenter = ({
         <View style={styles.form}>
           <Input
             containerStyle={{ marginTop: 35 }}
+            autoCapitalize="none"
+            autoCorrect={false}
             value={username}
             label={username?'계정 입력':null}
             placeholder={!username?'계정 입력':null}
             labelStyle={{ fontSize: 14, fontWeight: '100' }}
             errorStyle={{ color: error&&error.username ? 'red' : grey500 }}
             errorMessage={ error&&error.username ? error.username : '최대 16자리 계정/알파벳 a-z / 숫자 1-5'}
+            keyboardType="email-address"
+            onChangeText={onInputUsername}
             shake
-            />
-
+          />
           <Input
+            secureTextEntry
             containerStyle={{ marginTop: 25 }}
-            value={privateKey}
-            label={privateKey?'Private Key 입력':null}
-            placeholder={!privateKey?'Private Key 입력':null}
+            value={password}
+            label={password?'Private Key 입력':null}
+            placeholder={!password?'Private Key 입력':null}
             labelStyle={{ fontSize: 14, fontWeight: '100' }}
-            errorStyle={{ color: error&&error.privateKey ? 'red' : grey500 }}
-            errorMessage={ error&&error.privateKey ? error.privateKey : '입력한 계정의 Activate Key (Private)를 입력해 주세요.'}
+            errorStyle={{ color: error&&error.password ? 'red' : grey500 }}
+            errorMessage={ error&&error.password ? error.password : '입력한 계정의 Activate Key (Private)를 입력해 주세요.'}
+            keyboardType="numbers-and-punctuation"
+            onChangeText={onInputPassword}
             shake
           />
           

@@ -7,9 +7,6 @@ import {
 import { StyleProvider } from 'native-base';
 import { ThemeProvider } from 'react-native-elements';
 
-import getTheme from '../native-base-theme/components';
-import material from '../native-base-theme/variables/material';
-
 // import AuthLoadingScreen from '../screens/AuthLoadingScreen';
 
 import IntroScreen from '../screens/IntroScreen';
@@ -37,9 +34,7 @@ const AppContainer = createAppContainer(createSwitchNavigator(
 ));
 
 export default () => (
-  <StyleProvider style={getTheme(material)}>
-    <ThemeProvider>
-      <AppContainer />
-    </ThemeProvider>
-  </StyleProvider>
+  <ThemeProvider>
+    <AppContainer />
+  </ThemeProvider>
 );
