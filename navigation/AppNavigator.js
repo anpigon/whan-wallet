@@ -5,6 +5,8 @@ import {
   createAppContainer 
 } from 'react-navigation';
 import { StyleProvider } from 'native-base';
+import { ThemeProvider } from 'react-native-elements';
+
 import getTheme from '../native-base-theme/components';
 import material from '../native-base-theme/variables/material';
 
@@ -36,6 +38,8 @@ const AppContainer = createAppContainer(createSwitchNavigator(
 
 export default () => (
   <StyleProvider style={getTheme(material)}>
-    <AppContainer />
+    <ThemeProvider>
+      <AppContainer />
+    </ThemeProvider>
   </StyleProvider>
 );
