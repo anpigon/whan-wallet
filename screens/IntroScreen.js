@@ -52,7 +52,7 @@ class IntroScreen extends Component {
           <AppLabel><AppTitle>WHAN</AppTitle>Wallet</AppLabel>
         </CenterBox>
         <BottomBox>
-          <Button block rounded><Text>계정 불러오기</Text></Button>
+          <Button block rounded onPress={() => this.props.navigation.navigate('ImportWallet')}><Text>계정 불러오기</Text></Button>
           <View style={{flexDirection:'row', justifyContent: "center", marginTop: 20 }}>
             <Text style={{color: '#777'}}>아직 계정이 없으신가요? </Text>
             <TouchableOpacity onPress = {()=>Linking.openURL('https://www.steempeople.com/')}>
